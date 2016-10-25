@@ -109,7 +109,7 @@ So now you will be able to see this directory from your windows local typing in 
 
 //todo
 
-## Do the magic docker things
+### Do the magic docker things
 
 //todo
 
