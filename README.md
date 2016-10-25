@@ -103,8 +103,14 @@ So now you will be able to see this directory from your windows local typing in 
 
 ### Create a WebApi
 
+//todo
+
 ### Create the Dockerfile
 
+//todo
+
 ## Do the magic docker things
+
+//todo
 
 
