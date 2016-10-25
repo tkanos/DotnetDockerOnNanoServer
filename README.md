@@ -114,3 +114,14 @@ So now you will be able to see this directory from your windows local typing in 
 //todo
 
 
+# Links
+- [deployment Nano](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/deployment_nano)
+- [ASP.NET Core on Nano Server](https://docs.asp.net/en/latest/tutorials/nano-server.html)
+- [How to remote manage your Nano Server using PowerShell](http://www.thomasmaurer.ch/2015/12/how-to-remote-manage-your-nano-server-using-powershell/)
+- [Windows Container on Windows Server](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server)
+- [nanoserver/iis on DockerHub](https://hub.docker.com/r/nanoserver/iis/)
+- [Run IIS Asp.Net on Windows 10 with Docker](http://blog.alexellis.io/run-iis-asp-net-on-windows-10-with-docker/)
+
+
+
+
