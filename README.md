@@ -140,6 +140,20 @@ After have tested it, I published the code on Deploy Folder. is this code that w
 //todo
 
 
+# Remarks
+
+I'm really disapointed by nano server. My main goal was to deploy my .NET 4.5 application in a nano server, on docker. (I don't want to migrate them all to .net core)
+
+```bash
+FROM Microsoft/nanoserver
+```
+But Nano server on docker just don't support others framework than .net CORE. (it's for that I used microsoft/iis 9.48 Go WTF ?)
+And I don't know what's for.
+Linux has apt-get, yuml, .... to be able to start from a simple linux , and upgrade it, with others component.
+Nano if it's not on the starting image you will never be able to import it on nano.
+Example : If you don't start a Nano server with IIS inside, you won't be able later to import it on your docker container (WTF ?)
+
+
 # Links
 - [deployment Nano](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/deployment_nano)
 - [ASP.NET Core on Nano Server](https://docs.asp.net/en/latest/tutorials/nano-server.html)
