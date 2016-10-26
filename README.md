@@ -103,7 +103,27 @@ So now you will be able to see this directory from your windows local typing in 
 
 ## Create a WebApi
 
-//todo
+I've created an empty WebApi :
+
+![Empty WebApi](https://github.com/Tkanos/DotnetDockerOnNanoServer/blob/master/img/CreateEmptyWebApi.png)
+
+Then I create a HelloWorldController.cs, with the following code :
+
+```csharp
+[RoutePrefix("api/helloworld")]
+    public class HelloWorldController : ApiController
+    {
+        [HttpGet]
+        [Route("")]
+        public string Get()
+        {
+            return "Hello, World !";
+        }
+    }
+```
+
+After have tested it, I published the code on Deploy Folder. is this code that we will deploy on our Docker.
+
 
 ## Create the Dockerfile
 
