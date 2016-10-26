@@ -1,1 +1,1 @@
-The projects HelloWorldApi Published
+The project HelloWorldApi Published
