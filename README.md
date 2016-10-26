@@ -3,7 +3,13 @@
 # Install NanoServer
 
 I've install nano server on a Hyper-V. 
-But you can install it where you want.
+And i get the ip address of my container by powershell 
+
+```bash
+(Get-VMNetworkAdapter -VMName myVMName).IpAddresses 
+```
+
+But you can install it where you want. Hyper-V, physical Machine, Virtual Box ....
 
 Once it's installed we will run windows update in our nano server.
 
