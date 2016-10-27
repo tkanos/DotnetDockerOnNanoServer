@@ -133,25 +133,62 @@ After have tested it, I published the code on Deploy Folder. is this code that w
 
 ## Create the Dockerfile
 
-//todo
+I wanted to created a dockerfile FROM microsoft/nanoserver, but nanoserver is just not extensible. I can't do .net framework 4.7 works on nanoserver, so I used a [windowsservercore](https://hub.docker.com/r/microsoft/windowsservercore/) (with [IIS](https://hub.docker.com/r/microsoft/iis/)) (9 Go that's a big container)
+
+```
+FROM microsoft/iis:latest
+SHELL ["powershell"]
+
+RUN Install-WindowsFeature NET-Framework-45-ASPNET ; \  
+    Install-WindowsFeature Web-Asp-Net45
+
+COPY Deploy HelloWorldApi  
+
+RUN Remove-WebSite -Name 'Default Web Site'  
+RUN New-Website -Name 'helloworld' -Port 80 \  
+    -PhysicalPath 'C:\HelloWorldApi' -ApplicationPool '.NET v4.5'
+	
+EXPOSE 80
+
+```
+
+When you do that prepare yourself to wait a long time, you need to download somes GB.
 
 ## Do the magic docker things
 
-//todo
+```bash
+docker build -t helloworldwebapidotnet45 .
+docker run --name hello -d -p 8000:80 helloworldwebapidotnet45  
+```
+
+Then with your browser go to the ip of your nano server on the port 8000.
+You should see :
+
+```
+Hello, World !
+```
+
+That's great.
 
 
 # Remarks
 
-I'm really disapointed by nano server. My main goal was to deploy my .NET 4.5 application in a nano server, on docker. (I don't want to migrate them all to .net core)
+I'm really disapointed by nano server. My main goal was to deploy my .NET 4.5 applications in a nano server, on docker. (I don't want to migrate them all to .net core)
 
 ```bash
 FROM Microsoft/nanoserver
 ```
+
 But Nano server on docker just don't support others framework than .net CORE. (it's for that I used microsoft/iis 9.48 Go WTF ?)
-And I don't know what's for.
+And I don't know in what case i can use nanoserver on docker.
+
 Linux has apt-get, yuml, .... to be able to start from a simple linux , and upgrade it, with others component.
 Nano if it's not on the starting image you will never be able to import it on nano.
 Example : If you don't start a Nano server with IIS inside, you won't be able later to import it on your docker container (WTF ?)
+
+So microsoft did a good first try, and with microsoftservercore we have (if we eliminate the size) a good windows on docker.
+But it's really hard to forget the size of the container. A container should be as light as possible.
+And nanoserver ..... well ..... it's hard to forget that it stays heavy for a container, and you can't do much things with.
 
 
 # Links
