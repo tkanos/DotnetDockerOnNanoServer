@@ -135,7 +135,7 @@ After have tested it, I published the code on Deploy Folder. is this code that w
 
 ## Create the Dockerfile
 
-I wanted to created a dockerfile FROM microsoft/nanoserver, but nanoserver is just not extensible. I can't do .net framework 4.7 works on nanoserver, so I used a [windowsservercore](https://hub.docker.com/r/microsoft/windowsservercore/) (with [IIS](https://hub.docker.com/r/microsoft/iis/)) (9 Go that's a big container)
+I wanted to created a dockerfile FROM microsoft/nanoserver, but nanoserver is just not extensible. I can't do .net framework 4.7 works on nanoserver, so I used a [windowsservercore](https://hub.docker.com/r/microsoft/windowsservercore/) (with [IIS](https://hub.docker.com/r/microsoft/iis/)) (4 Go that's a big container)
 
 ```
 FROM microsoft/iis:latest
@@ -181,16 +181,13 @@ I'm really disapointed by nano server. My main goal was to deploy my .NET 4.5 ap
 FROM Microsoft/nanoserver
 ```
 
-But Nano server on docker just don't support others framework than .net CORE. (it's for that I used microsoft/iis 9.48 Go WTF ?)
+But Nano server on docker just don't support others framework than .net CORE. (it's for that I used microsoft/iis 4 Go WTF ?)
 And I don't know in what case i can use nanoserver on docker.
 
 Linux has apt-get, yuml, .... to be able to start from a simple linux , and upgrade it, with others component.
 Nano if it's not on the starting image you will never be able to import it on nano.
 Example : If you don't start a Nano server with IIS inside, you won't be able later to import it on your docker container (WTF ?)
 
-So microsoft did a good first try, and with microsoftservercore we have (if we eliminate the size) a good windows on docker.
-But it's really hard to forget the size of the container. A container should be as light as possible.
-And nanoserver ..... well ..... it's hard to forget that it stays heavy for a container, and you can't do much things with.
 
 
 # Links
